@@ -9,7 +9,7 @@ void log(const char file[], int line, const char* format, ...);
 
 enum update_status
 {
-	UPDATE_CONTINUE = 1,
+	UPDATE_CONTINUE = 1, 
 	UPDATE_STOP,
 	UPDATE_ERROR
 };
@@ -39,6 +39,9 @@ enum update_status
 #define SCREEN_HEIGHT 400
 #define SCREEN_SIZE 2
 #define FULLSCREEN false
+#define RESIZABLE false
+#define BORDERLESS false
+#define FULLSCREEN_DESKTOP false
 #define VSYNC true
 #define TITLE "Snow Bros"
 
