@@ -11,9 +11,7 @@ enum main_states
 	MAIN_CREATION,
 	MAIN_INIT,
 	MAIN_START,
-	MAIN_PREUPDATE,
 	MAIN_UPDATE,
-	MAIN_POSTUPDATE,
 	MAIN_FINISH, 
 	MAIN_EXIT
 };
@@ -51,71 +49,16 @@ int main(int argc, char ** argv)
 
 			break;
 
-		case MAIN_START:
-
-			LOG("Application Start --------------");
-			if (App->Start() == false)
-			{
-				LOG("Application Start exits with error -----");
-				state = MAIN_EXIT;
-			}
-			else
-			{
-				state = MAIN_PREUPDATE;
-				LOG("Application Update --------------");
-			}
-
-			break;
-
-		case MAIN_PREUPDATE:
-		{
-			int update_return = App->PreUpdate();
-
-			if (update_return == UPDATE_CONTINUE){
-				state = MAIN_UPDATE;
-			}
-
-			if (update_return == UPDATE_ERROR)
-			{
-				LOG("Application PreUpdate exits with error -----");
-				state = MAIN_EXIT;
-			}
-			if (update_return == UPDATE_STOP)
-				state = MAIN_FINISH;
-		}
-		break;
-
 		case MAIN_UPDATE:
 		{
 			int update_return = App->Update();
 
-			if (update_return == UPDATE_CONTINUE){
-				state = MAIN_POSTUPDATE;
-			}
 			if (update_return == UPDATE_ERROR)
 			{
 				LOG("Application Update exits with error -----");
 				state = MAIN_EXIT;
 			}
 
-			if (update_return == UPDATE_STOP)
-				state = MAIN_FINISH;
-		}
-		break;
-
-		case MAIN_POSTUPDATE:
-		{
-			int update_return = App->PostUpdate();
-
-			if (update_return == UPDATE_CONTINUE){
-				state = MAIN_PREUPDATE;
-			}
-
-			if (update_return == UPDATE_ERROR)
-			{
-				LOG("Application PostUpdate exits with error -----");
-				state = MAIN_EXIT;
-			}
 			if (update_return == UPDATE_STOP)
 				state = MAIN_FINISH;
 		}

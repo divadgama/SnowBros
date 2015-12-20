@@ -35,5 +35,8 @@
     <ClInclude Include="Game.h">
       <Filter>Main</Filter>
     </ClInclude>
+    <ClInclude Include="Module.h">
+      <Filter>CoreComponent</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

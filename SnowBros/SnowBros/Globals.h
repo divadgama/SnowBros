@@ -3,6 +3,10 @@
 
 #include "../SDL/include/SDL_rect.h"
 
+typedef unsigned int uint;
+typedef unsigned char uchar;
+typedef unsigned __int32 uint32;
+
 #define LOG(format, ...) log(__FILE__, __LINE__, format, __VA_ARGS__);
 
 void log(const char file[], int line, const char* format, ...);
