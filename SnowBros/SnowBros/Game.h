@@ -6,7 +6,7 @@
 #include "Module.h" 
 
 
-/*class ModuleRender;
+class ModuleRender;
 class ModuleWindow;
 class ModuleTextures;
 class ModuleInput;
@@ -16,7 +16,7 @@ class ModulePlayer;
 class ModuleParticles;
 class ModuleCollision;
 class ModuleSceneIntro;
-class ModuleSceneSpace;*/
+class ModuleSceneSpace;
 
 
 class Game
@@ -31,25 +31,25 @@ public:
 
 
 public:
-	//ModuleRender* renderer;
-	//ModuleWindow* window;
-	//ModuleTextures* textures;
-	//ModuleInput* input;
-	//ModuleAudio* audio;
-	//ModuleFadeToBlack* fade;
-	//ModuleParticles* particles;
-	//ModuleCollision* collision;
+	ModuleRender* renderer;
+	ModuleWindow* window;
+	ModuleTextures* textures;
+	ModuleInput* input;
+	ModuleAudio* audio;
+	ModuleFadeToBlack* fade;
+	ModuleParticles* particles;
+	ModuleCollision* collision;
 
 	// Game logic --
-	//ModulePlayer* player;
-	//ModuleSceneIntro* scene_intro;
-	//ModuleSceneSpace* scene_space;
+	ModulePlayer* player;
+	ModuleSceneIntro* scene_intro;
+	ModuleSceneSpace* scene_space;
 
 
 private:
 
 	std::list<Module*> modules;
-	//Module* first_scene = nullptr;
+	Module* first_scene = nullptr;
 };
 
 extern Game* App;

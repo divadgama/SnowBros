@@ -1,5 +1,5 @@
 #include "Game.h"
-/*
+
 #include "ModuleWindow.h"
 #include "ModuleRender.h"
 #include "ModuleTextures.h"
@@ -10,30 +10,30 @@
 #include "ModuleCollision.h"
 #include "ModuleSceneIntro.h"
 #include "ModuleSceneSpace.h"
-#include "ModulePlayer.h"*/
+#include "ModulePlayer.h"
 
 using namespace std;
 
 Game::Game()
 {
 	// Order matters: they will init/start/pre/update/post in this order
-	//modules.push_back(input = new ModuleInput());
-	//modules.push_back(window = new ModuleWindow());
+	modules.push_back(input = new ModuleInput());
+	modules.push_back(window = new ModuleWindow());
 
-	//modules.push_back(textures = new ModuleTextures());
-	//modules.push_back(audio = new ModuleAudio());
-	//modules.push_back(particles = new ModuleParticles());
-	//modules.push_back(collision = new ModuleCollision());
-	//modules.push_back(fade = new ModuleFadeToBlack());
+	modules.push_back(textures = new ModuleTextures());
+	modules.push_back(audio = new ModuleAudio());
+	modules.push_back(particles = new ModuleParticles());
+	modules.push_back(collision = new ModuleCollision());
+	modules.push_back(fade = new ModuleFadeToBlack());
 
 	// Game Modules
-	//modules.push_back(scene_intro = new ModuleSceneIntro(false));
-	//modules.push_back(scene_space = new ModuleSceneSpace(false));
-	//modules.push_back(player = new ModulePlayer(false)); // player needs to be after scene
+	modules.push_back(scene_intro = new ModuleSceneIntro(false));
+	modules.push_back(scene_space = new ModuleSceneSpace(false));
+	modules.push_back(player = new ModulePlayer(false)); // player needs to be after scene
 
-	//modules.push_back(renderer = new ModuleRender());
+	modules.push_back(renderer = new ModuleRender());
 	// set first scene for the game
-	//first_scene = scene_intro;
+	first_scene = scene_intro;
 }
 
 Game::~Game()
@@ -56,9 +56,9 @@ bool Game::Init()
 	}
 
 	// Start the first scene --
-	/*if (first_scene != nullptr)
+	if (first_scene != nullptr)
 		fade->FadeToBlack(first_scene, nullptr, 3.0f);
-		*/
+		
 
 	return ret;
 }
